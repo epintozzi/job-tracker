@@ -14,6 +14,10 @@ FactoryGirl.define do
     level_of_interest 5
   end
 
-sequence(:title) { |n| "Job #{n}"}
+  sequence(:title) { |n| "Job/Category #{n}"}
+
+  factory :category do
+    title
+  end
 
 end
