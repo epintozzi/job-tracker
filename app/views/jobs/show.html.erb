@@ -11,3 +11,21 @@ Category: <%= link_to @job.category.title, category_path(@job.category) %>
 <br>
 
 Company: <%= link_to @job.company.name, company_path(@job.company) %>
+
+<br>
+<br>
+<div>
+Leave a comment:
+<%= form_for ([@job, @comment]) do |f| %>
+  <%= f.label :comment %>
+  <%= f.text_field :content %>
+
+  <%= f.submit %>
+<% end %>
+</div>
+<div>
+<h3>Comments about this job: </h3>
+<% @job.comments.each do |comment| %>
+<%= comment.content %>
+<% end %>
+</div>

@@ -10,7 +10,6 @@ describe "User updates an existing job" do
     new_interest = 60
 
     visit company_path(company)
-    # save_and_open_page
     click_on "Edit"
     fill_in "job[title]", with: new_title
     fill_in "job[description]", with: new_description
