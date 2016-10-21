@@ -27,4 +27,11 @@ FactoryGirl.define do
     job {create(:job)}
   end
 
+  factory :contact do
+    full_name "Erin Pintozzi"
+    position "Student"
+    email "erin@pintozzi.com"
+    company {create(:company)}
+  end
+
 end
