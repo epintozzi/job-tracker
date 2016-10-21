@@ -23,9 +23,11 @@ Leave a comment:
   <%= f.submit %>
 <% end %>
 </div>
-<div>
+<div class="comment">
 <h3>Comments about this job: </h3>
-<% @job.comments.each do |comment| %>
-<%= comment.content %>
+<% @job.comments.reverse.each do |comment| %>
+<ul>
+  <%= comment.content %>
+</ul>
 <% end %>
 </div>
