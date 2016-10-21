@@ -21,4 +21,9 @@ FactoryGirl.define do
     title
   end
 
+  factory :comment do
+    content "this is some comment content"
+    job {create(:job)}
+  end
+
 end
