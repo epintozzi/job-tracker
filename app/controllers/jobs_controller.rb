@@ -2,12 +2,12 @@ class JobsController < ApplicationController
   def index
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
+    @contact = Contact.new
   end
 
   def new
     @company = Company.find(params[:company_id])
     @job = Job.new()
-    # @categories = Category.all
   end
 
 
@@ -24,17 +24,18 @@ class JobsController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+    @company = @job.company
+    @comment = Comment.new
   end
 
   def edit
-    @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
-    # @categories = Category.all
+    @company = @job.company
   end
 
   def update
-    @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
+    @company = @job.company
     if @job.update(job_params)
       redirect_to company_job_path(@company, @job)
     else
@@ -43,10 +44,9 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
+    @company = @job.company
     @job.delete
-
     flash[:success] = "#{@job.title} was successfully deleted!"
     redirect_to company_jobs_path
   end

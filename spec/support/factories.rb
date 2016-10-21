@@ -13,12 +13,25 @@ FactoryGirl.define do
     description "Fun job"
     level_of_interest 5
     category {create(:category)}
+    company {create(:company)}
   end
 
   sequence(:title) { |n| "Job/Category #{n}"}
 
   factory :category do
     title
+  end
+
+  factory :comment do
+    content "this is some comment content"
+    job {create(:job)}
+  end
+
+  factory :contact do
+    full_name "Erin Pintozzi"
+    position "Student"
+    email "erin@pintozzi.com"
+    company {create(:company)}
   end
 
 end
