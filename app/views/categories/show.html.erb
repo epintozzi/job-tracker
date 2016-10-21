@@ -1,0 +1,11 @@
+<h2> Category: <%= @category.title %> </h2>
+
+<h3> Jobs in this category: </h3>
+
+<ul>
+<li>
+  <% @category.jobs.each do |job| %>
+  <%= job.title %>
+  <% end %>
+</li>
+</ul>
