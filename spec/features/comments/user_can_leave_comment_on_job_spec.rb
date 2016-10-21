@@ -21,8 +21,8 @@ describe "User can leave comment on job" do
 
     visit job_path(job)
 
-    expect(page).to have_content("first comment")
-    expect(page).to have_content("second comment")
+    expect(page).to have_content comment_1.content
+    expect(page).to have_content comment_2.content
 
     # within "div.comment:nth-child(1)" do
     #   expect(page).to have_content("second comment")
