@@ -7,7 +7,7 @@ describe "User deletes existing job" do
 
     visit company_path(company)
 
-    click_on "Delete #{first.title}"
+    click_on "Delete"
 
     expect(page).to have_content "#{first.title} was successfully deleted!"
   end
