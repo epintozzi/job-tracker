@@ -1,6 +1,8 @@
 <div class="container">
 <h3>All Companies</h3>
-
+<div>
+  <%= link_to "View by location", "/companies?sort=location" %>
+</div>
 <% @companies.each do |company| %>
   <ul class=company_<%= company.id %>>
     <%= link_to company.name, company_path(company) %> - <%= company.city %><br>
@@ -9,5 +11,11 @@
   </ul>
 <% end %>
 
-<%= link_to "View by location", "/companies?sort=location" %>
+<!-- Single button -->
+<div class="btn-group">
+  <a href="/companies/new"><button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="false">
+    Create New
+  </button></a>
+</div>
+
 </div>

@@ -3,7 +3,10 @@ class JobsController < ApplicationController
     @company = Company.find(params[:company_id])
     @jobs = @company.jobs
     @contact = Contact.new
+  end
 
+  def all_jobs
+    @jobs = Job.all
     if params[:sort] == "interest"
       @jobs = @jobs.sort_by do |job|
         job.level_of_interest

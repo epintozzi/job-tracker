@@ -8,8 +8,13 @@
   <%= link_to "Delete", company_job_path(@company, job), method: "delete" %>
   </ul>
 <% end %>
-
-<%= link_to "View by level of interest", "/jobs?sort=interest" %>
+<div>
+  <%= link_to new_company_job_path do %>
+  <button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="false">
+    Create New
+  </button>
+  <% end %>
+</div>
 
 <div>
   <h3> Add a contact person for <%= @company.name %>:</h3>
@@ -30,11 +35,11 @@
 </div>
 
 <div>
-  <h3>Contacts at <%= @company.name %>: </h3>
+  <h4>Contacts at <%= @company.name %>: </h4>
   <% @company.contacts.each do |contact| %>
   <ul>
-    <%= contact.full_name %>
-    <%= contact.position %>
+    <%= contact.full_name %> -
+    <%= contact.position %> -
     <%= contact.email %>
   </ul>
   <% end %>

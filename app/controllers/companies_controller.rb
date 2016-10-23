@@ -6,6 +6,9 @@ class CompaniesController < ApplicationController
         company.city
       end
     end
+    if !params[:location].nil?
+      @companies = @companies.where(city: params[:location])
+    end
   end
 
   def new

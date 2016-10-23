@@ -13,4 +13,17 @@
  *= require_tree .
  *= require_self
  */
+// @import "bootstrap";
+@import "bootstrap-sprockets";
 @import "bootstrap";
+
+h2, h3, h4 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: "Open Sans", sans-serif;
+  color: #0B610B;
+}
+
+ul, li {
+  list-style-type: none !important;
+}
