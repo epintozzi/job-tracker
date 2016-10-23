@@ -1,3 +1,4 @@
+<div class="container">
 <h3>All Companies</h3>
 
 <% @companies.each do |company| %>
@@ -7,3 +8,6 @@
     <%= link_to "Delete", company_path(company), method: "delete" %>
   </ul>
 <% end %>
+
+<%= link_to "View by location", "/companies?sort=location" %>
+</div>

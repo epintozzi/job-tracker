@@ -1,3 +1,4 @@
+<div class="container">
 <h2>All Jobs for <%= @company.name %></h2>
 
 <% @jobs.each do |job| %>
@@ -7,6 +8,8 @@
   <%= link_to "Delete", company_job_path(@company, job), method: "delete" %>
   </ul>
 <% end %>
+
+<%= link_to "View by level of interest", "/jobs?sort=interest" %>
 
 <div>
   <h3> Add a contact person for <%= @company.name %>:</h3>
@@ -36,4 +39,5 @@
   </ul>
   <% end %>
 
+</div>
 </div>

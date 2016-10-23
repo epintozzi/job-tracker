@@ -1,6 +1,11 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.all
+    if params[:sort] == "location"
+      @companies = @companies.sort_by do |company|
+        company.city
+      end
+    end
   end
 
   def new
