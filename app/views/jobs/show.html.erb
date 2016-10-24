@@ -1,33 +1,35 @@
-Title: <%= @job.title %>
-<br>
+<div class="container">
+  Title: <%= @job.title %>
+  <br>
 
-Description: <%= @job.description %>
-<br>
+  Description: <%= @job.description %>
+  <br>
 
-Level of Interest: <%= @job.level_of_interest %>
-<br>
+  Level of Interest: <%= @job.level_of_interest %>
+  <br>
 
-Category: <%= link_to @job.category.title, category_path(@job.category) %>
-<br>
+  Category: <%= link_to @job.category.title, category_path(@job.category) %>
+  <br>
 
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+  Company: <%= link_to @job.company.name, company_path(@job.company) %>
 
-<br>
-<br>
-<div>
-Leave a comment:
-<%= form_for ([@job, @comment]) do |f| %>
-  <%= f.label :comment %>
-  <%= f.text_field :content %>
+  <br>
+  <br>
+  <div>
+    <h3>Leave a comment:</h3>
+    <%= form_for ([@job, @comment]) do |f| %>
+    <%= f.label :comment %>
+    <%= f.text_field :content %>
 
-  <%= f.submit %>
-<% end %>
-</div>
-<div class="comment">
-<h3>Comments about this job: </h3>
-<% @job.comments.reverse.each do |comment| %>
-<ul>
-  <%= comment.content %>
-</ul>
-<% end %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+  <div class="comment">
+    <h4>Comments about this job: </h4>
+    <% @job.comments.reverse.each do |comment| %>
+    <ul>
+      <%= comment.content %>
+    </ul>
+    <% end %>
+  </div>
 </div>

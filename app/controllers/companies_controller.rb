@@ -1,6 +1,14 @@
 class CompaniesController < ApplicationController
   def index
     @companies = Company.all
+    if params[:sort] == "location"
+      @companies = @companies.sort_by do |company|
+        company.city
+      end
+    end
+    if !params[:location].nil?
+      @companies = @companies.where(city: params[:location])
+    end
   end
 
   def new
@@ -39,7 +47,7 @@ class CompaniesController < ApplicationController
 
   def destroy
     company = Company.find(params[:id])
-    company.delete
+    company.destroy
 
     flash[:success] = "#{company.name} was successfully deleted!"
     redirect_to companies_path
