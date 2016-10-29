@@ -1,0 +1,28 @@
+<div class="container">
+<h2>Dashboard</h2>
+
+<div class="row">
+  <div class="col-md-4">
+    <h4>Jobs by level of interest</h4>
+    <% @interest.each do |interest, count| %>
+      <li><%= interest %>
+      <span class="badge"><%= count %></span></li>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h4>Top 3 companies by average interest level</h4>
+    <% @average_interest.each do |company, interest| %>
+    <li><%= Company.find(company).name %>
+      <span class="badge"><%= interest %></span></li>
+      <% end %>
+  </div>
+  <div class="col-md-4">
+    <h4>Jobs by location</h4>
+    <% @cities.each do |city, count| %>
+    <li><%= link_to city, "/companies?location=#{city}" %>
+    <span class="badge"><%= count %></span></li>
+    <% end %>
+  </div>
+</div>
+
+</div>

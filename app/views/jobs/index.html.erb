@@ -1,0 +1,48 @@
+<div class="container">
+<h2>All Jobs for <%= @company.name %></h2>
+
+<% @jobs.each do |job| %>
+  <ul>
+  <%= link_to job.title, company_job_path(@company, job) %> at <%= job.company.name %>
+  <%= link_to "Edit", edit_company_job_path(@company, job) %>
+  <%= link_to "Delete", company_job_path(@company, job), method: "delete" %>
+  </ul>
+<% end %>
+<div>
+  <%= link_to new_company_job_path do %>
+  <button type="button" class="btn btn-success" aria-haspopup="true" aria-expanded="false">
+    Create New
+  </button>
+  <% end %>
+</div>
+
+<div>
+  <h3> Add a contact person for <%= @company.name %>:</h3>
+
+  <%= form_for ([@company, @contact]) do |f| %>
+    <%= f.label :Name %>
+    <%= f.text_field :full_name %>
+
+    <%= f.label :Position %>
+    <%= f.text_field :position %>
+
+    <%= f.label :Email %>
+    <%= f.text_field :email %>
+
+    <%= f.submit %>
+  <% end %>
+
+</div>
+
+<div>
+  <h4>Contacts at <%= @company.name %>: </h4>
+  <% @company.contacts.each do |contact| %>
+  <ul>
+    <%= contact.full_name %> -
+    <%= contact.position %> -
+    <%= contact.email %>
+  </ul>
+  <% end %>
+
+</div>
+</div>
